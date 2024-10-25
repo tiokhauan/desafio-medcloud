@@ -17,3 +17,15 @@ jobs:
           aws-region: us-east-1
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Chekout
+        uses: action/chekout@v4
+
+      - name: Terraform init
+        working-directory: ./src
+        run: terraform init -backend-config="bucket=${{ secrets.AWS_BUCKET_NAME }}" -backend-config="key=${{ secrets.AWS_BUCKET_FILE }}" -backend-config="region=us-east-1"
+
+      - name: Terraform Apply
+        working-directory: ./src
+        run: terraform apply --auto-aprove
+
