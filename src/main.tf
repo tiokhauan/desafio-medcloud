@@ -43,7 +43,7 @@ module "eks" {
       min_size      = 2
       max_size      = 2
       desired_size  = 2
-      instace_types = var.aws_eks_managed_node_groups_instance_types
+      instance_types = var.aws_eks_managed_node_groups_instance_types
       tags = var.aws_project_tags
       volume_type   = "gp3"
       volume_size   = 20
@@ -53,3 +53,4 @@ module "eks" {
 
   tags = var.aws_project_tags
 }
+

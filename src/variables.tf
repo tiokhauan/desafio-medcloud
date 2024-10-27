@@ -47,9 +47,9 @@ variable "aws_eks_version" {
 }
 
 variable "aws_eks_managed_node_groups_instance_types" {
-  description = "Tipos de instância para os grupos de nós gerenciados do EKS"
-  type = set(string)
-  nullable = false
+  description = "Tipos de instância para o grupo de nós EKS"
+  type        = list(string)
+  default     = ["t2.micro"]
 }
 
 variable "aws_project_tags" {
