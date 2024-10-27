@@ -4,8 +4,8 @@ resource "aws_budgets_budget" "monthly_cost_budget" {
   limit_amount      = "1"                  # Valor máximo do orçamento em dólares
   limit_unit        = "USD"
 
-  # Utilizando apenas a data, sem a parte da hora
-  time_period_start = formatdate("2006-01-02", timestamp())
+  # Corrigindo o formato da data para incluir a hora
+  time_period_start = formatdate("2006-01-02T15:04:05Z", timestamp())
   time_unit         = "MONTHLY"
 
   # Notificação quando o custo atingir 80% do limite
